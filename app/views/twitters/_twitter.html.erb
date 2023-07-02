@@ -1,11 +1,13 @@
 <div id="<%= dom_id twitter %>">
-  <p>
-    <strong>Username:</strong>
-    <%= twitter.username %>
+<p>
+  <!-- <strong>User: </strong> -->
+  
+  <img class="user" <%= image_tag("usuario.png") %>
+  <b><%= twitter.username %></b>
   </p>
 
-  <p>
-    <strong>Description:</strong>
+  <!-- <strong>Description:</strong> -->
+  <p class="descrip">
     <%= twitter.description %>
   </p>
 

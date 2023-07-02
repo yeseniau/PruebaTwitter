@@ -1,9 +1,14 @@
 class TwittersController < ApplicationController
-  before_action :set_twitter, only: %i[ show edit update destroy ]
 
   # GET /twitters or /twitters.json
   def index
-    @twitters = Twitter.all
+    #@pagy, @twitters = pagy(created_at: :desc)
+    @pagy, @twitters = pagy(Twitter.all)
+  
+    if params[:twitter].present?
+      @twitters = @twitters.search_full_text(params[:twitter])
+    end
+
   end
 
   # GET /twitters/1 or /twitters/1.json

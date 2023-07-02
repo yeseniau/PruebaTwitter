@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Twitters</h1>
+
+<div class="text-center">
+  <!-- <h1>Twitters</h1> -->
+</div>
+
+<div>
+  <%= form_with url: twitters_path, method: :get do |form|%>
+    <%= form.text_field :twitter, value: params[:twitter]%>
+    <input class="btn btn-primary" type="submit" value="Buscar">
+  <%end%>
+</div>
+<br>
+<hr>
 
 <div id="twitters">
   <% @twitters.each do |twitter| %>
     <%= render twitter %>
-    <p>
-      <%= link_to "Show this twitter", twitter %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New twitter", new_twitter_path %>
+<br>
+<hr>
+<%== pagy_bootstrap_nav(@pagy) %>
